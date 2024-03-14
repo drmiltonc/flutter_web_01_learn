@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_01_learn/layout_main_page.dart';
 import 'package:flutter_web_01_learn/locator.dart';
 import 'package:flutter_web_01_learn/navigation_service.dart';
-import 'package:flutter_web_01_learn/route_generator.dart';
+import 'package:flutter_web_01_learn/router.dart';
 
 void main() {
   setupLocator();
+  AppRouter.configureRoutes();
   runApp(const MainApp());
 }
 
@@ -18,7 +19,7 @@ class MainApp extends StatelessWidget {
       title: 'Flutter Web',
       initialRoute: '/stateful',
       navigatorKey: locator<NavigationService>().navigartorKey,
-      onGenerateRoute: RouteGenerator.generateRoute,
+      onGenerateRoute: AppRouter.fluroRouter.generator,
       builder: (_, child) => MainLayouScreen(child: child!),
     );
   }
