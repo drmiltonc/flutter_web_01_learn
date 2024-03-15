@@ -2,16 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_web_01_learn/error_view.dart';
 import 'package:flutter_web_01_learn/provider_view.dart';
-import 'package:flutter_web_01_learn/stateful_view.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
 
     switch (settings.name) {
       case '/stateful':
-       return _fadeRoute(const TextStateful(), '/stateful' );
+       return   _fadeRoute(const ErrorView(), '/stateful' ) ;
       case '/provider':
-        return _fadeRoute(const TextProvider(), '/provider' );
+        return _fadeRoute( TextProvider(base: ''), '/provider' );
       default: 
         return _fadeRoute(const ErrorView(), '/404' );
     }

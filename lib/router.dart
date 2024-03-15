@@ -7,11 +7,11 @@ class AppRouter {
   static final fluroRouter = FluroRouter();
 
   static void configureRoutes() {
-    fluroRouter.define(
+   /*  fluroRouter.define(
       '/',
       handler: _counterHandler,
       transitionType: TransitionType.none,
-    );
+    ); */
 
     fluroRouter.define(
       '/stateful',
@@ -34,22 +34,26 @@ class AppRouter {
     fluroRouter.notFoundHandler = _pageNotFound;
   }
 
-  static final _counterHandler =
+ /*  static final _counterHandler =
       Handler(handlerFunc: (context, params) {
         print(params['base']?[0]);
-        return const TextStateful();
+        return TextStateful();
         }
-      );
+      ); */
 
   static final _counterStatefulHandler =
       Handler(handlerFunc: (context, params) {
         print(params['base']?[0]);
-        return const TextStateful();
+        return TextStateful(base: params['base']?[0] ?? '5' );
         }
       );
 
   static final _counterProviderHandler =
-      Handler(handlerFunc: (context, params) => const TextProvider());
+      Handler(handlerFunc: (context, params) {
+          print(params);
+          return TextProvider(base: params['q']?[0] ?? '20');
+          
+          });
 
   static final _pageNotFound =
       Handler(handlerFunc: (_, __) => const ErrorView());

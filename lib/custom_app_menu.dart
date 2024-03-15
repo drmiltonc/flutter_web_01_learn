@@ -35,7 +35,8 @@ class _TabletDesktopMenu extends StatelessWidget {
           CustomTextButton(text: 'Contador Stateful', onPressed: () => locator<NavigationService>().navigaTo('/stateful')),
           CustomTextButton(text: 'Contador Provider', onPressed:  () => locator<NavigationService>().navigaTo('/provider')),
           CustomTextButton(text: 'Otra página', onPressed: () => locator<NavigationService>().navigaTo('/abc123')),
-          CustomTextButton(text: 'Stateful 100', onPressed: () => locator<NavigationService>().navigaTo('/stateful/100'))
+          CustomTextButton(text: 'Stateful 100', onPressed: () => locator<NavigationService>().navigaTo('/stateful/100')),
+          CustomTextButton(text: 'Provider 200', onPressed: () => locator<NavigationService>().navigaTo('/provider?q=200'))
           
         ],
       ),
